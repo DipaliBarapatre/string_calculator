@@ -12,8 +12,7 @@ class StringCalculator
 
 		#Replace new lines with commas
 		numbers = numbers_list.gsub("\n", ",")
-
-		numbers = numbers_list.split(",").map(&:to_i)
+		numbers = numbers.split(",").map(&:to_i)
 
 		#Check negative numbers
 		negative_numbers = numbers.select { |num| num < 0 }
