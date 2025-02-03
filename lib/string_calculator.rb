@@ -13,8 +13,15 @@ class StringCalculator
 		#Replace new lines with commas
 		numbers = numbers_list.gsub("\n", ",")
 
+		numbers = numbers_list.split(delimeter).map(&:to_i)
+
+		#Check negative numbers
+		negative_numbers = numbers.select {|number| number.to_i.negative?}
+        raise "Negative numbers not allowed: #{negative_numbers.join(',')}" if negative_numbers.any?
+
+
 		#Sum of numbers
-		numbers.split(',').map(&:to_i).sum 
+		numbers.sum 
 	end
 
 	private

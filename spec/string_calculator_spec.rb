@@ -28,7 +28,7 @@ RSpec.describe StringCalculator do
 		end
 
 		it 'should not return wrong value' do
-			expect(StringCalculator.add(1, 3, 4)).not_to eq(10)
+			expect(StringCalculator.add("1, 3, 4")).not_to eq(10)
 		end
 
 		it 'should support different delimiters' do
@@ -36,12 +36,12 @@ RSpec.describe StringCalculator do
 		end
 
 		it "should raise exception for negative number" do
-			expect{StringCalculator.add("-1")}.to raise_error(StandardError, 'negative numbers not allowed: -1')
-			expect{StringCalculator.add("1, -2")}.to raise_error(StandardError, 'negative numbers not allowed: -1, -2')
+			expect{StringCalculator.add("-1")}.to raise_error('Negative numbers not allowed: -1')
+			expect{StringCalculator.add("1, -2")}.to raise_error('Negative numbers not allowed: -1, -2')
 		end
 
 		it 'should raise exception for multiple negative numbers' do
-			expect{StringCalculator.add("-1, 3, -4")}.to raise_error(StandardError, 'negative numbers not allowed: -1, -4')
+			expect{StringCalculator.add("-1, 3, -4")}.to raise_error('Negative numbers not allowed: -1, -4')
         end
 
 	end
