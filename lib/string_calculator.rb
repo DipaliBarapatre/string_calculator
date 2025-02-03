@@ -10,6 +10,9 @@ class StringCalculator
 		#Find delimeters
 		delimeter, numbers_list = get_delimeter(numbers)
 
+		#Replace new lines with commas
+		numbers = numbers_list.gsub("\n", ",")
+
 		#Sum of numbers
 		numbers.split(',').map(&:to_i).sum 
 	end
